@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Bindings } from './bindings/bindings';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Bindings],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Corso angular 4Bi 2025/2026');
+  // title è un attributo della classe App
+  // In typescript una variabile si dichiara scrivendo nome: tipo
+  // Posso assegnare direttamente un valore con nome: tipo = valore
+  protected readonly title: WritableSignal<string> = signal<string>('Corso angular 4Bi 2025/2026');
+  numero: number = 5;  
+
 }
