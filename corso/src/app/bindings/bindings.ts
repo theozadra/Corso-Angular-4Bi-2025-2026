@@ -9,4 +9,9 @@ import { Component, signal, WritableSignal } from '@angular/core';
 export class Bindings {
 	//Dichiaro il signal writable
 	studente: WritableSignal<string> = signal('Theo Zadra');
+
+	// Aggiungo il metodo cambia nome
+	cambiaNome(): void {
+		this.studente.set('Luca Boschi');
+	}
 }
