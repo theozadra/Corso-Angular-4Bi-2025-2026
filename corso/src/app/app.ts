@@ -1,10 +1,13 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Bindings } from './bindings/bindings';
+import { Header } from './header/header';
+import { Footer } from './footer/footer';
+import { NavBar } from './nav-bar/nav-bar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Bindings],
+  imports: [RouterOutlet, Bindings, Header, Footer, NavBar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
