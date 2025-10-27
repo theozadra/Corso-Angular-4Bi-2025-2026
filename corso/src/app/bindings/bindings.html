@@ -1,0 +1,35 @@
+<h3 class="display-3">
+	Bindings
+</h3>
+<p>Per bindings si intendono gli strumenti che ci consentono di collegare e quindi rendere dinamici
+	i template HTML con gli attributi metodi della classe (typescript) del componente
+</p>
+<h4 class="display-4">
+	String interpolation
+</h4>
+<p>Con string interpolation visualizzo nel template il valore di una "variabile" typescript</p>
+<p><b>ATTENZIONE: Le variabili che possono essere visualizzate sono solo ed esclusivamente
+		attributi della classe.</b></p>
+<p>In un progetto zone-less per garantire che la vista venga aggiornata se cambia il valore della variabile
+	DEVO usare i signals e non variabili tradizionali. </p>
+<p><b>Cosa sono i signals? </b>Sono funzioni wrapper (funzioni contenitori, che avvolgono, gestiscono
+	un valore che può essere di qualsiasi tipo: String, number, array, oggetti.<br>
+	Un signal per la modifica dei valori mette a disposizione dei metodi, se vengono usati, il nuovo
+	valore del signal verrà visualizzato nel browser</p>
+<p>Quali sono gli step?</p>
+<ol>
+	<li>Dichiarare un signal in typescript ed assegnarli un valore</li>
+	<li>Inserire una chiamata alla funzione (signal è una funzione wrapper) fra doppie parentesi graffe.</li>
+</ol>
+<p>Esempio 1.</p>
+<p>Studente: {{studente()}}</p>
+<h3>Event binding</h3>
+<p>Consente di eseguire codice typescript al verificarsi di un evento</p>
+<p>Come si procede: </p>
+<ol>
+	<li>dovete scegliere l'evento che vi interessa</li>
+	<li>dal nome dell'evento togliete on iniziale e inserite quello che resta fra parentesi tonde</li>
+	<li>Dovete aggiungere un metodo alla classe con il codice da eseguire</li>
+</ol>
+<p>Esempio 2.</p>
+<p><button class="btn btn-primary" (click)="cambiaNome()">Cambia nome</button></p>
