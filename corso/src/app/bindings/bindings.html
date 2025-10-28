@@ -35,12 +35,57 @@
 <p><button class="btn btn-primary" (click)="cambiaNome()">Cambia nome</button></p>
 <p>Esempio 3.</p>
 <div class="row">
-<div class="col-sm-4">
-	<button class="btn btn-danger" (click)="Decrementa()">Decrementa</button>
-</div>
-<div class="col-sm-4">
-	Valore contatore: {{contatore()}}
-</div>
-<div class="col-sm-4">
-	<button class="btn btn-success" (click)="Incrementa()">Incrementa</button>
-</div>
+	<div class="col-sm-4">
+		<button class="btn btn-danger" (click)="decrementa()">Decrementa</button>
+	</div>
+	<div class="col-sm-4">
+		Valore contatore: {{contatore()}}
+	</div>
+		<div class="col-sm-4">
+			<button class="btn btn-success" (click)="incrementa()">Incrementa</button>
+		</div>
+	</div>
+	<h4 class="display-4">
+		Property Binding
+	</h4>
+	<p>Con property binding posso impostare il valore di un attributo di un tag html in modo dinamico
+		usando variabili/signal typescript.
+	</p>
+	<p>Per utilizzare property binding racchiudo il nome dell'attributo fra parentesi quadre,
+		e fra le virgolette inserisco la "variabile/signal" che contiene il valore dell'attributo.
+	</p>
+	<img class="img-fluid img-thumbnail" src="/bicicletta.jpg">
+	<img class="img-fluid img-thumbnail" [src]="nomeImmagine()">
+	<img class="img-fluid img-thumbnail" [src]="nomeImmagine()">
+	<p>Esempio 2.</p>
+	<div class="row">
+		<div class="col-sm-3">
+			<button class="btn btn-primary" (click)="prev()">Prev</button>
+		</div>
+		<div class="col-sm-6">
+			<img class="img-fluid img-thumbnail" [src]="immagini[indiceImmagine()]">
+		</div>
+		<div class="col-sm-3">
+			<button class="btn btn-primary" (click)="next()">Next</button>
+		</div>
+	</div>
+	<h4 class="display-4">
+		Style binding
+	</h4>
+	<p>
+		Attraverso style binding è possibile impostare uno o più stili di un elemento HTML in modo dinamico
+		Si realizza utilizzando la sintassi [style.nomestiledaimpostare]="espressione typescript che determina il valore"
+	</p>
+	<p>Esempio 6.</p>
+	<p style="color:red;">Paragrafo scritto in rosso</p>
+	<p [style.color]="colori[2]">Paragrafo con colore scelto in modo dinamico</p>
+	<h4 class="display-4">
+		Class binding
+	</h4>
+	<p>
+		Attraverso class binding è possibile impostare l'attributo class di un elemento HTML.
+		Si realizza utilizzando la sintassi [class.nome]="elenco di classi da aggiungere",
+		oppure [class.nomeclasse]="espressione typescript che restuisca true/false"
+	</p>
+	<p>Esempio 7.</p>
+	<h1 [class]="classeTitolo">Esempio di titolo</h1>
