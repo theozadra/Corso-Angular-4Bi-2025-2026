@@ -35,16 +35,12 @@
 <p><button class="btn btn-primary" (click)="cambiaNome()">Cambia nome</button></p>
 <p>Esempio 3.</p>
 <div class="row">
-	<div class="col-sm-4">
-		<button class="btn btn-danger">Decrements</button>
-	</div>
+<div class="col-sm-4">
+	<button class="btn btn-danger" (click)="Decrementa()">Decrementa</button>
 </div>
-	<div class="col-sm-4">
-		Valore contatore:
-	</div>
+<div class="col-sm-4">
+	Valore contatore: {{contatore()}}
 </div>
-	<div class="col-sm-4">
-		<p>
-		<button class="btn btn-success">Increments</button>
-	</div>
+<div class="col-sm-4">
+	<button class="btn btn-success" (click)="Incrementa()">Incrementa</button>
 </div>
