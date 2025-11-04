@@ -24,12 +24,46 @@
 <div class="row">
     <div class="col-sm-3">
         <div>
-            <button class="btn btn-primary" (click)="toggleBanner()">Mostra alert</button>
+            <button class="btn btn-primary" (click)="immagineOTesto()">Immagine/Testo</button>
         </div>
     </div>
     <div class="col-sm-9">
-        @if (visualizzaBanner()) {
-            <div class="alert alert-danger" role="alert">Questo è il messaggio di errore.</div>
+        @if(visualizzaImmagineOTesto() == 'immagine') {
+            <img class="img-fluid img-thumbnail" src="ciao.jpg">
+        }
+        @else {
+            <p class="lead border">Questo è il testo che viene visualizzato al posto dell'immagine.</p>
         }
     </div>
+</div>
+<h4 class="display-4">for</h4>
+<p>Con la direttiva for è possibile aggiungere n-volte il blocco HTML definito fra le parentesi graffe.<br>
+For opera sempre su un array, quindi esegue l'iterazione e inserisce il blocco per ogni elemento presente nell'array.
+Se gli elementi dell'array vengono modificati o vengono aggiunti nuovi elementi, la serie di blocchi HTML viene modificata 
+di conseguenza. Perché la pagina risponda ai combiamenti è necessario gestire l'array attraverso
+un signal.</p>
+<p><u>Esempio 3.</u></p>
+<div class="row">
+    <div class="col-sm-9">
+        <div>
+            <input class="form-control" type="text" placeholder="Nuovo nome..." #inNome>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="aggiungiNome(inNome)">Aggiungi</button>
+        </div>
+    </div>
+</div>
+<div>
+    <h4>Nomi:</h4>        
+            @for(nome of nomi(); track nome) {
+                <!-- Blocco da inserire per ogni elemento dell'array -->
+                 <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item flex-fill">{{nome}}</li>
+                    <li class="list-group-item"><button class="btn btn-danger" (click)="elimina($index)">Elimina</button></li>
+                    <li class="list-group-item"><button class="btn btn-success">Modifica</button></li>
+                 </ul>
+            }
+        
 </div>
