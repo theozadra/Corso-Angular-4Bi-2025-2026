@@ -101,3 +101,16 @@ valore del signal verrà visualizzato nel browser.</p>
 </p>
 <p>Esempio 7.</p>
 <h1 [class]="classeTitolo">Esempio di titolo</h1>
+<p>Esempio 8.</p>
+<div role="alert" [class]="classiBanner[indiceClasse()]">Esempio di banner</div>
+<p>Esempio 9.</p>
+<p (mouseover)="mettiBordo()" (mouseout)="togliBordo()" [class.border]="visualizzaBordo()">Prova posizionare il cursore sul testo e poi fuori.</p>
+<h4 class="display-4">
+    Two-way binding
+</h4>
+<p>Stabilisce un collegamento fra una variabile typescript e un oggetto (generalmente una input)
+    della pagina HTML. Se cambia il valore nella pagina, cambia il valore della varibile e viceversa.
+</p>
+<p>Esepio 10.</p>
+<div>Nome: {{nomePersona}}</div>
+<div><input class="form-control" type="text" [(ngModel)]="nomePersona"></div>

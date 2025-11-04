@@ -4,10 +4,11 @@ import { Bindings } from './bindings/bindings';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { NavBar } from './nav-bar/nav-bar';
+import { DirettiveStrutturali } from './direttive-strutturali/direttive-strutturali';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Bindings, Header, Footer, NavBar],
+  imports: [RouterOutlet, Bindings, Header, Footer, NavBar, DirettiveStrutturali],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

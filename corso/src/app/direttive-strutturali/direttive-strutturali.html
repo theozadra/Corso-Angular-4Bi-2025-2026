@@ -1,0 +1,35 @@
+<h3 class="display-3">
+    Direttive strutturali
+</h3>
+<p>Le direttive strutturali consentono di modificare in maniera dinamica il DOM (struttura) della pagina.
+    E' possibile, cioè, aggiungere o togliere tag HTML utilizzando typescript.
+</p>
+<h4 class="display-4">if</h4>
+<p>La direttiva if consente di inserire nel dom un blocco HTML se la condizione è vera, oppure
+    di inserire un blocco oppure un'altro in alternativa.</p>
+<p><u>Esempio 1.</u></p>
+<div class="row">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="toggleBanner()">Mostra alert</button>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        @if (visualizzaBanner()) {
+            <div class="alert alert-danger" role="alert">Questo è il messaggio di errore.</div>
+        }
+    </div>
+</div>
+<p><u>Esempio 2.</u></p>
+<div class="row">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="toggleBanner()">Mostra alert</button>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        @if (visualizzaBanner()) {
+            <div class="alert alert-danger" role="alert">Questo è il messaggio di errore.</div>
+        }
+    </div>
+</div>
