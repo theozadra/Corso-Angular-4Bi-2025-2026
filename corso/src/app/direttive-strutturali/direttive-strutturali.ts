@@ -13,6 +13,10 @@ export class DirettiveStrutturali {
   visualizzaImmagineOTesto: WritableSignal<string> = signal('immagine');
   nomi: WritableSignal<string[]> = signal(['Andrea', 'Luca', 'Matteo']);
   indiceModifica: WritableSignal<number> = signal(-1);
+  // Signal da utilizzare per la direttiva switch
+  // Supponiamo di avere un signal chiamato tipoUtente di tipo string
+  // che abbia come valori possibili: studente, genitore, docente, altro
+  tipoUtente: WritableSignal<string> = signal('studente');
 
   toggleBanner(): void {
     // Visualizza il banner
@@ -46,5 +50,34 @@ export class DirettiveStrutturali {
       current.splice(indice, 1);
       return [...current];
     })
+  }
+
+  attivaModifica(indice: number): void {
+    this.indiceModifica.set(indice);
+  }
+
+  annulla(): void {
+    this.indiceModifica.set(-1);
+  }
+
+  salva(nuovoNome: string): void {
+    this.nomi.update(current  => {
+      current[this.indiceModifica()] = nuovoNome;
+      return current;
+    })
+    this.indiceModifica.set(-1);
+  }
+
+  switchToStudente(): void {
+    this.tipoUtente.set('studente');
+  }
+  switchToGenitore(): void {
+    this.tipoUtente.set('genitore');
+  }
+  switchToDocente(): void {
+    this.tipoUtente.set('docente');
+  }
+  switchToAltro(): void {
+    this.tipoUtente.set('altro');
   }
 }

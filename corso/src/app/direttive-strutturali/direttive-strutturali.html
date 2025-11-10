@@ -55,15 +55,86 @@ un signal.</p>
         </div>
     </div>
 </div>
-<div>
+<div class="my-5">
     <h4>Nomi:</h4>        
             @for(nome of nomi(); track nome) {
                 <!-- Blocco da inserire per ogni elemento dell'array -->
-                 <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item flex-fill">{{nome}}</li>
-                    <li class="list-group-item"><button class="btn btn-danger" (click)="elimina($index)">Elimina</button></li>
-                    <li class="list-group-item"><button class="btn btn-success">Modifica</button></li>
-                 </ul>
-            }
-        
+
+                @if (indiceModifica() == $index) {
+
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item flex-fill">
+                            <input type="text" class="form-control" #inCambiaNome [value]="nome">
+                        </li>
+                        <li class="list-group-item"><button class="btn btn-primary" (click)="salva(inCambiaNome.value)">Salva</button></li>
+                        <li class="list-group-item"><button class="btn btn-secondary" (click)="annulla()">Annulla</button></li>
+                    </ul>
+                }
+                @else {
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item flex-fill">{{nome}}</li>
+                        <li class="list-group-item"><button class="btn btn-danger" (click)="elimina($index)">Elimina</button></li>
+                        <li class="list-group-item"><button class="btn btn-success" (click)="attivaModifica($index)">Modifica</button></li>
+                    </ul>
+                }
+            }        
+</div>
+<h4 class="display-4">switch</h4>
+<p>La direttiva switch consente l'inserimento di un blocco HTML fra tanti
+    in base al valore della variabile utilizzata per la scelta.
+</p>
+<p><u>Esempio 4.</u></p>
+<div class="my-5">
+    <div class="row">
+        <div class="col">
+            <div>
+                <button class="btn btn-primary" (click)="switchToStudente()">Studente</button>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <button class="btn btn-primary" (click)="switchToGenitore()">Genitore</button>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <button class="btn btn-primary" (click)="switchToDocente()">Docente</button>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <button class="btn btn-primary" (click)="switchToAltro()">Altro</button>
+            </div>
+        </div>
+    </div>
+    @switch (tipoUtente()) {
+        @case ('studente') {
+            <!-- Blocco da inserire se tipoUtente è uguale a studente -->
+             <div>
+                <h1 class="display-4">Studente...</h1>
+             </div>
+        }
+        @case ('genitore') {
+            <!-- Blocco da inserire se tipoUtente è uguale a studente -->
+             <div>
+                <h1 class="display-4">Genitore...</h1>
+                <p>Calendario udienze...</p>
+             </div>
+        }
+        @case ('docente') {
+            <!-- Blocco da inserire se tipoUtente è uguale a studente -->
+             <div>
+                <h1 class="display-4">Docente...</h1>
+                <p>Registro...</p>
+             </div>
+        }
+        @default {
+             <!-- Blocco inserito in tutti gli altri casi -->
+              <div>
+                <h1 class="display-4">Tipo utente non riconosciuto...</h1>
+              </div>
+        }
+
+    }
+    
 </div>
