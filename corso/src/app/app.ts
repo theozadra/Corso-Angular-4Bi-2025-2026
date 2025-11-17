@@ -5,10 +5,11 @@ import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { NavBar } from './nav-bar/nav-bar';
 import { DirettiveStrutturali } from './direttive-strutturali/direttive-strutturali';
+import { ClassiInterfacce } from './classi-interfacce/classi-interfacce';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Bindings, Header, Footer, NavBar, DirettiveStrutturali],
+  imports: [RouterOutlet, Bindings, Header, Footer, NavBar, DirettiveStrutturali, ClassiInterfacce],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -9,7 +9,7 @@ export class Persona {
     constructor(nome: string, cognome: string, sesso: string) {
         this._nome = nome;
         this._cognome = cognome;
-        this._sesso = sesso;
+        this._sesso = sesso;        
     }
 
     // Getter
