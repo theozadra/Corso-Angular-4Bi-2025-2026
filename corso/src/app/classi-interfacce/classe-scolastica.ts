@@ -61,5 +61,21 @@ export class ClasseScolastica{
                 </tbody>
             </table>`
     }
+
+    public aggiungiStudente(studente: Studente): void {
+        this._studenti.push(studente);
+    }
+
+    public eliminaStudente(indice: number): void {
+        this._studenti.splice(indice, 1);
+    }
+
+    public modificaStudente(indice: number, studente: Studente) {
+        try {
+            this._studenti[indice] = studente;
+        } catch (error) {
+            throw new Error('Indice fuori range.');
+        }
+    }
     
 }
