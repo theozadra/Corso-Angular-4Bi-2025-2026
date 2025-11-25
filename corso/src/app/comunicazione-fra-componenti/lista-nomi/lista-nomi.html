@@ -1,0 +1,10 @@
+<div class="row my-5">
+    <ul class="list-group">
+        @for(nome of nomi(); track $index) {
+            <li class="list-group-item">{{nome}}</li>
+        }
+        @empty {
+            <li class="list-group-item list-group-item-danger">Non sono presenti nomi.</li>
+        }
+    </ul>
+</div>

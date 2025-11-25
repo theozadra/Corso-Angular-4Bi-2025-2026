@@ -1,0 +1,23 @@
+<h3 class="display-3">Comunicazione fra componenti</h3>
+<p>Angular mette a disposizione alcuni signals per la comunicazione fra componenti.
+    Il requisito base è che ci deve essere una relazione padre->figlio fra i componenti perché
+    possano scambiarsi dati, ovvero un componente deve contenere l'altro componente.    
+</p>
+<p>
+    Un componente può ricevere dati in input, inviare dati in output attraverso eventi oppure attivare una comunicazione 
+    bidirezionale (simile a two way binding [(ngModel)]).
+</p>
+<!-- onNuovoNome è l'OutputEmitterRef (output) definito del componente InserimentoNomi.
+ $event contiene il valore del parametro passato al metodo emit.-->
+<app-inserimento-nomi (onNuovoNome)="aggiungi($event)"></app-inserimento-nomi>
+<!-- [nomi] è l'InputSignal (input) definito nel componente ListaNomi. [nomi] riceverà i dati
+ memorizzati in nomi() (signal del componente padre (ContenitorePadre)) -->
+<app-lista-nomi [nomi]="nomi()"></app-lista-nomi>
+<div class="row">
+    <p class="lead">Colore: {{colore()}}</p>
+</div>
+<!-- [(colore)] è il signal di tipo model definito in DueVie. colore è un WritableSignal definito
+ nel componente PADRE. 
+ Si noti la differenza fra "colore" e "nomi()": nel primo caso passiamo come parametro l'intero signal,
+ nel secondo invece passiamo in input il valore gestito dal signal chiamato nomi. -->
+<app-due-vie [(colore)]="colore"></app-due-vie>
